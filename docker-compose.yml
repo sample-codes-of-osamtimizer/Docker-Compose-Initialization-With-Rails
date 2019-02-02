@@ -19,6 +19,6 @@ services:
     depends_on:
       - db
       - redis
-  volumes:
-    bundle:
-      postgresql:
+volumes:
+  bundle:
+  postgresql:

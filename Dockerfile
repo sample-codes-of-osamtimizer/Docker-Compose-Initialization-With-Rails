@@ -1,6 +1,6 @@
 FROM ruby:2.6
 
-ENV APPDIR=/usr/local/myapp
+ENV APPDIR /usr/local/myapp
 
 RUN apt-get update && \
     apt-get install -y vim less && \
@@ -15,3 +15,8 @@ RUN groupadd -r --gid 1000 rails && \
 
 USER rails
 WORKDIR $APPDIR
+
+COPY --chown=rails:rails Gemfile $APPDIR
+COPY --chown=rails:rails Gemfile.lock $APPDIR
+
+ENV BUNDLE_GEMFILE=$APPDIR/Gemfile
