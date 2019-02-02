@@ -10,13 +10,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -r /var/lib/apt/lists/*
 
-RUN groupadd -r --gid 1000 rails && \
-    useradd -m -r --uid 1000 --gid 1000 rails
-
-USER rails
 WORKDIR $APPDIR
 
-COPY --chown=rails:rails Gemfile $APPDIR
-COPY --chown=rails:rails Gemfile.lock $APPDIR
+COPY Gemfile $APPDIR
+COPY Gemfile.lock $APPDIR
 
 ENV BUNDLE_GEMFILE=$APPDIR/Gemfile
