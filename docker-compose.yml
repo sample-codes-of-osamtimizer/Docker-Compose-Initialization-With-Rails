@@ -11,6 +11,7 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - bundle:/usr/local/bundle
+      - .:/usr/local/myapp:cached
     ports:
       - "3000:3000"
     environment:
