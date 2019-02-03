@@ -13,7 +13,4 @@ RUN apt-get update && \
 
 WORKDIR $APPDIR
 
-COPY Gemfile $APPDIR
-COPY Gemfile.lock $APPDIR
-
 ENV BUNDLE_GEMFILE=$APPDIR/Gemfile
